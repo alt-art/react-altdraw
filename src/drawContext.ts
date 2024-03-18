@@ -91,6 +91,26 @@ class DrawContext2D {
     }
   }
 
+  public arc(
+    x: number,
+    y: number,
+    radius: number,
+    start: number,
+    stop: number
+  ): void {
+    if (this.context && (this.doFill || this.doStroke)) {
+      this.context.beginPath();
+      this.context.arc(x, y, radius, start, stop);
+      if (this.doFill) {
+        this.context.fill();
+      }
+      this.context.closePath();
+      if (this.doStroke) {
+        this.context.stroke();
+      }
+    }
+  }
+
   public circle(x: number, y: number, radius: number): void {
     if (this.context && (this.doFill || this.doStroke)) {
       this.context.beginPath();
