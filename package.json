@@ -2,6 +2,16 @@
   "name": "react-altdraw",
   "version": "1.0.0",
   "description": "A react component for drawing in things on a canvas",
+  "repository": {
+    "url":"https://github.com/alt-art/react-altdraw"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/alt-art"
+  },
+  "bugs": {
+    "url": "https://github.com/alt-art/react-altdraw/issues"
+  },
+  "homepage": "https://github.com/alt-art/react-altdraw",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.es.d.ts",
