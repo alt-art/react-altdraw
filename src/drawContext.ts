@@ -11,6 +11,14 @@ export type Vector = {
   z: number;
 };
 
+export enum MouseButtons {
+  LEFT = 0,
+  MIDDLE = 1,
+  RIGHT = 2,
+  BACK = 3,
+  FORWARD = 4,
+}
+
 class DrawContext2D {
   public context: CanvasRenderingContext2D | null = null;
   public windowWidth: number;
@@ -19,6 +27,13 @@ class DrawContext2D {
   public frameRate = 0;
   public mouseX = 0;
   public mouseY = 0;
+  public pmouseX = 0;
+  public pmouseY = 0;
+  public mouseIsPressed = false;
+  public mouseButton: MouseButtons | null = null;
+  public key: string | null = null;
+  public keyCode: string | null = null;
+  public keyIsPressed = false;
   private perlin: number[] | null = null;
   private perlin_octaves = 4;
   private perlin_amp_falloff = 0.5;
@@ -33,8 +48,28 @@ class DrawContext2D {
     this.windowHeight = canvas.height;
     window.addEventListener('mousemove', (e) => {
       const rect = canvas.getBoundingClientRect();
+      this.pmouseX = this.mouseX;
+      this.pmouseY = this.mouseY;
       this.mouseX = e.clientX - rect.left;
       this.mouseY = e.clientY - rect.top;
+    });
+    window.addEventListener('mousedown', (e) => {
+      this.mouseIsPressed = true;
+      this.mouseButton = e.button;
+    });
+    window.addEventListener('mouseup', () => {
+      this.mouseButton = null;
+      this.mouseIsPressed = false;
+    });
+    window.addEventListener('keydown', (e) => {
+      this.key = e.key;
+      this.keyCode = e.code;
+      this.keyIsPressed = true;
+    });
+    window.addEventListener('keyup', () => {
+      this.key = null;
+      this.keyCode = null;
+      this.keyIsPressed = false;
     });
   }
 

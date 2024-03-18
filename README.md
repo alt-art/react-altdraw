@@ -54,13 +54,13 @@ function App() {
 | `context`               | draw on 2d context it manually                         | ✅     |
 | `width` and `height`    | The width and height of the canvas                     | ✅     |
 | `mouseX` and `mouseY`   | Horizontal and vertical position of the mouse          | ✅     |
-| `pmouseX` and `pmouseY` | Previous horizontal and vertical position of the mouse | ❌     |
-| `mouseIsPressed`        | True if the mouse is pressed                           | ❌     |
-| `mouseButton`           | The current state of the mouse button                  | ❌     |
+| `pmouseX` and `pmouseY` | Previous horizontal and vertical position of the mouse | ✅     |
+| `mouseIsPressed`        | True if the mouse is pressed                           | ✅     |
+| `mouseButton`           | The current state of the mouse button                  | ✅     |
 | `mouseWheel`            | The amount the mouse wheel has moved                   | ❌     |
-| `key`                   | The value of the most recent key pressed               | ❌     |
-| `keyCode`               | The value of the most recent key pressed               | ❌     |
-| `keyIsPressed`          | True if a key is pressed                               | ❌     |
+| `key`                   | The value of the most recent key pressed               | ✅     |
+| `keyCode`               | The value of the most recent key pressed               | ✅     |
+| `keyIsPressed`          | True if a key is pressed                               | ✅     |
 | `frameCount`            | The number of frames displayed                         | ✅     |
 | `frameRate`             | The number of frames displayed per second              | ✅     |
 | `save`                  | Save the canvas as an image                            | ❌     |
