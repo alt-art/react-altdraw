@@ -242,6 +242,16 @@ class DrawContext2D {
     return 0;
   }
 
+  public map(
+    value: number,
+    start1: number,
+    stop1: number,
+    start2: number,
+    stop2: number
+  ): number {
+    return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1));
+  }
+
   public noise(x: number, y = 0, z = 0): number {
     if (this.perlin == null) {
       this.perlin = new Array(PERLIN_SIZE + 1);
