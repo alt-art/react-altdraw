@@ -50,6 +50,7 @@ function Quad({
         const x4 = centerWidth + Math.sin(angle + (Math.PI * 3) / 3) * 100;
         const y4 = centerHeight + Math.cos(angle + (Math.PI * 3) / 3) * 100;
         dc.quad(x1, y1, x2, y2, x3, y3, x4, y4);
+        dc.fill('white');
         dc.text(`frameRate: ${dc.frameRate}`, 10, 20, 20, 'monospace');
       }}
     />

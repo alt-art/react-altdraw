@@ -17,6 +17,7 @@ function Ellipse() {
         dc.stroke('black');
         dc.strokeWeight(5);
         dc.ellipse(dc.windowWidth / 2, dc.windowHeight / 2, 100, 200);
+        dc.fill('white');
         dc.text(`frameRate: ${dc.frameRate}`, 10, 20, 20, 'monospace');
       }}
     />

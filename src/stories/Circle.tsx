@@ -41,6 +41,7 @@ function Circle({
         const y = dc.windowHeight / 2 + Math.sin(dc.frameCount / 100) * radius;
         const r = Math.abs(Math.sin(dc.frameCount / 100)) * radius + radius / 2;
         dc.circle(x, y, r);
+        dc.fill('white');
         dc.text(`frameRate: ${dc.frameRate}`, 10, 20, 20, 'monospace');
       }}
     />
