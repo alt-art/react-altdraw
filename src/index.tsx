@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import DrawContext2D from './drawContext';
+import DrawContext2D, { Vector } from './drawContext';
 
 interface DrawProps {
   setup: (canvas: HTMLCanvasElement) => void;
@@ -46,3 +46,6 @@ function Draw({ setup, draw, onResize }: DrawProps) {
 }
 
 export default Draw;
+
+export type { DrawContext2D };
+export type { Vector };
