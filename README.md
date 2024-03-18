@@ -2,6 +2,32 @@ Simple react component library to draw some basic shapes using canvas. inspired 
 
 > :warning: **This is a work in progress**: This library is not ready for production use yet.
 
+## Example
+
+```jsx
+import Draw from 'react-altdraw';
+
+function App() {
+  return (
+    <Draw
+      setup={(canvas) => {
+        canvas.width = 300;
+        canvas.height = 300;
+      }}
+      draw={(dc) => {
+        dc.background('gray');
+        dc.fill('white');
+        const x = dc.windowWidth / 2;
+        const y = dc.windowHeight / 2;
+        const r = Math.abs(Math.sin(dc.frameCount / 100)) * 100;
+        dc.circle(x, y, r);
+        dc.text(`frameRate: ${dc.frameRate}`, 10, 20, 20, 'monospace');
+      }}
+    />
+  );
+}
+```
+
 ## Implemented shapes and features
 
 | Feature                 | Description                                            | Status |

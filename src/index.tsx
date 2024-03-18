@@ -4,7 +4,7 @@ import DrawContext2D from './drawContext';
 interface DrawProps {
   setup: (canvas: HTMLCanvasElement) => void;
   draw: (dc: DrawContext2D) => void;
-  onResize: (canvas: HTMLCanvasElement) => void;
+  onResize?: (canvas: HTMLCanvasElement) => void;
 }
 
 function Draw({ setup, draw, onResize }: DrawProps) {
@@ -17,7 +17,9 @@ function Draw({ setup, draw, onResize }: DrawProps) {
       const drawContext = new DrawContext2D(canvas.current);
       addEventListener('resize', () => {
         if (canvas.current) {
-          onResize(canvas.current);
+          if (onResize) {
+            onResize(canvas.current);
+          }
           drawContext.resize(canvas.current.width, canvas.current.height);
         }
       });
