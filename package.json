@@ -1,8 +1,20 @@
 {
   "name": "react-altdraw",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A react component for drawing in things on a canvas",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.es.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
+      "types": "./dist/index.es.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vite build",
@@ -10,8 +22,8 @@
     "build-storybook": "storybook build"
   },
   "type": "module",
-  "keywords": [],
-  "author": "",
+  "keywords": ["drawing", "react", "canvas", "p5", "p5.js", "processing"],
+  "author": "Pedro Mendes <me@altart.top>",
   "license": "MIT",
   "devDependencies": {
     "@storybook/addon-essentials": "^8.0.0",

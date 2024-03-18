@@ -8,8 +8,9 @@ export default defineConfig({
     minify: false,
     lib: {
       entry: resolve(__dirname, 'src/index.tsx'),
+      formats: ['es', 'umd'],
       name: 'react-altdraw',
-      fileName: 'index',
+      fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
       treeshake: 'smallest',
