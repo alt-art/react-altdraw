@@ -20,20 +20,6 @@ export enum MouseButtons {
 }
 
 class DrawContext2D {
-  public context: CanvasRenderingContext2D | null = null;
-  public windowWidth: number;
-  public windowHeight: number;
-  public frameCount = 0;
-  public frameRate = 0;
-  public mouseX = 0;
-  public mouseY = 0;
-  public pmouseX = 0;
-  public pmouseY = 0;
-  public mouseIsPressed = false;
-  public mouseButton: MouseButtons | null = null;
-  public key: string | null = null;
-  public keyCode: string | null = null;
-  public keyIsPressed = false;
   private perlin: number[] | null = null;
   private perlin_octaves = 4;
   private perlin_amp_falloff = 0.5;
@@ -41,6 +27,110 @@ class DrawContext2D {
   private doFill = true;
   private textFont = 'sans-serif';
   private textSize = 16;
+
+  /**
+   * The canvas rendering context
+   * @returns The canvas rendering context
+   */
+  public context: CanvasRenderingContext2D | null = null;
+
+  /**
+   * The width of the canvas
+   * @returns The width of the canvas
+   */
+  public windowWidth: number;
+
+  /**
+   * The height of the canvas
+   * @returns The height of the canvas
+   */
+  public windowHeight: number;
+
+  /**
+   * The frame count of the canvas
+   * @returns The frame count of the canvas
+   */
+  public frameCount = 0;
+
+  /**
+   * The frame rate of the canvas in seconds
+   * @returns The frame rate of the canvas
+   */
+  public frameRate = 0;
+
+  /**
+   * Mouse x-coordinate
+   * @returns The x-coordinate of the mouse
+   */
+  public mouseX = 0;
+
+  /**
+   * Mouse y-coordinate
+   * @returns The y-coordinate of the mouse
+   */
+  public mouseY = 0;
+
+  /**
+   * Previous mouse x-coordinate
+   * @returns The previous x-coordinate of the mouse
+   */
+  public pmouseX = 0;
+
+  /**
+   * Previous mouse y-coordinate
+   * @returns The previous y-coordinate of the mouse
+   */
+  public pmouseY = 0;
+
+  /**
+   * Mouse is pressed
+   * @returns Whether the mouse is pressed
+   * @example
+   * if (dc.mouseIsPressed) {
+   *  dc.circle(dc.mouseX, dc.mouseY, 50);
+   * }
+   */
+  public mouseIsPressed = false;
+
+  /**
+   * Mouse button
+   * @returns The mouse button that is pressed
+   * @example
+   * if (dc.mouseButton === MouseButtons.LEFT) {
+   *  dc.circle(dc.mouseX, dc.mouseY, 50);
+   * }
+   */
+  public mouseButton: MouseButtons | null = null;
+
+  /**
+   * Key
+   * @returns The key that is pressed
+   * @example
+   * if (dc.key === 'a') {
+   * dc.circle(100, 100, 50);
+   * }
+   */
+  public key: string | null = null;
+
+  /**
+   * Key code
+   * @returns The key code that is pressed
+   * @example
+   * if (dc.keyCode === 'KeyA') {
+   * dc.circle(100, 100, 50);
+   * }
+   */
+  public keyCode: string | null = null;
+
+  /**
+   * Key is pressed
+   * @returns Whether the key is pressed
+   * @example
+   * if (dc.keyIsPressed) {
+   * dc.circle(100, 100, 50);
+   * }
+   */
+  public keyIsPressed = false;
 
   public constructor(canvas: HTMLCanvasElement) {
     this.context = canvas.getContext('2d');
