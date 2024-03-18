@@ -86,8 +86,8 @@ class DrawContext2D {
    * Mouse is pressed
    * @returns Whether the mouse is pressed
    * @example
-   * if (dc.mouseIsPressed) {
-   *  dc.circle(dc.mouseX, dc.mouseY, 50);
+   * if (drawContext.mouseIsPressed) {
+   *  drawContext.circle(drawContext.mouseX, drawContext.mouseY, 50);
    * }
    */
   public mouseIsPressed = false;
@@ -96,8 +96,8 @@ class DrawContext2D {
    * Mouse button
    * @returns The mouse button that is pressed
    * @example
-   * if (dc.mouseButton === MouseButtons.LEFT) {
-   *  dc.circle(dc.mouseX, dc.mouseY, 50);
+   * if (drawContext.mouseButton === MouseButtons.LEFT) {
+   *  drawContext.circle(drawContext.mouseX, drawContext.mouseY, 50);
    * }
    */
   public mouseButton: MouseButtons | null = null;
@@ -106,8 +106,8 @@ class DrawContext2D {
    * Key
    * @returns The key that is pressed
    * @example
-   * if (dc.key === 'a') {
-   * dc.circle(100, 100, 50);
+   * if (drawContext.key === 'a') {
+   * drawContext.circle(100, 100, 50);
    * }
    */
   public key: string | null = null;
@@ -116,8 +116,8 @@ class DrawContext2D {
    * Key code
    * @returns The key code that is pressed
    * @example
-   * if (dc.keyCode === 'KeyA') {
-   * dc.circle(100, 100, 50);
+   * if (drawContext.keyCode === 'KeyA') {
+   * drawContext.circle(100, 100, 50);
    * }
    */
   public keyCode: string | null = null;
@@ -126,8 +126,8 @@ class DrawContext2D {
    * Key is pressed
    * @returns Whether the key is pressed
    * @example
-   * if (dc.keyIsPressed) {
-   * dc.circle(100, 100, 50);
+   * if (drawContext.keyIsPressed) {
+   * drawContext.circle(100, 100, 50);
    * }
    */
   public keyIsPressed = false;
@@ -553,6 +553,8 @@ class DrawContext2D {
    * console.log(noiseValue);
    * @returns The noise value
    */
+  // Implementation of perlin noise generator from p5.js library
+  // Link: https://github.com/processing/p5.js/blob/main/src/math/noise.js
   public noise(x: number, y = 0, z = 0): number {
     if (this.perlin == null) {
       this.perlin = new Array(PERLIN_SIZE + 1);
