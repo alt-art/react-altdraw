@@ -26,7 +26,12 @@ export default defineConfig({
     eslint(),
     dts({
       insertTypesEntry: true,
-      exclude: ['**/*.stories.tsx', '**/*.test.tsx', '**/stories/**'],
+      exclude: [
+        '**/*.stories.tsx',
+        '**/*.test.tsx',
+        '**/stories/**',
+        'vite.config.ts',
+      ],
     }),
   ],
 });
