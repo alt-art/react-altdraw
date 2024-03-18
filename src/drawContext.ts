@@ -24,6 +24,8 @@ class DrawContext2D {
   private perlin_amp_falloff = 0.5;
   private doStroke = false;
   private doFill = true;
+  private textFont = 'sans-serif';
+  private textSize = 16;
 
   public constructor(canvas: HTMLCanvasElement) {
     this.context = canvas.getContext('2d');
@@ -179,6 +181,40 @@ class DrawContext2D {
         this.context.stroke();
       }
     }
+  }
+
+
+  public text(
+    text: string,
+    x: number,
+    y: number,
+    size?: number,
+    font?: string
+  ): void {
+    if (size) {
+      this.textSize = size;
+    }
+    if (font) {
+      this.textFont = font;
+    }
+    if (this.context) {
+      this.context.font = `${this.textSize}px ${this.textFont}`;
+      this.context.fillText(text, x, y);
+    }
+  }
+
+  public textWidth(text: string, size?: number, font?: string): number {
+    if (size) {
+      this.textSize = size;
+    }
+    if (font) {
+      this.textFont = font;
+    }
+    if (this.context) {
+      this.context.font = `${this.textSize}px ${this.textFont}`;
+      return this.context.measureText(text).width;
+    }
+    return 0;
   }
 
   public noise(x: number, y = 0, z = 0): number {

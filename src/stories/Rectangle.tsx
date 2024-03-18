@@ -15,6 +15,7 @@ function Rectangle() {
         dc.background('gray');
         dc.fill('blue');
         dc.rect(50, 50, 100, 100);
+        dc.text(`frameRate: ${dc.frameRate}`, 10, 20, 20, 'monospace');
       }}
     />
   );

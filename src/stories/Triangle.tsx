@@ -48,6 +48,7 @@ function Triangle({
         const x3 = centerWidth + Math.sin(angle + (Math.PI * 4) / 3) * 100;
         const y3 = centerHeight + Math.cos(angle + (Math.PI * 4) / 3) * 100;
         dc.triangle(x1, y1, x2, y2, x3, y3);
+        dc.text(`frameRate: ${dc.frameRate}`, 10, 20, 20, 'monospace');
       }}
     />
   );

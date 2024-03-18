@@ -45,6 +45,7 @@ function Arc({
         const y = centerHeight + Math.cos(angle) * 100;
         const endAngle = angle % (Math.PI * 2);
         dc.arc(x, y, 100, 0, endAngle);
+        dc.text(`frameRate: ${dc.frameRate}`, 10, 20, 20, 'monospace');
       }}
     />
   );
