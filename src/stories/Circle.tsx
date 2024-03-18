@@ -6,6 +6,7 @@ interface CircleProps {
   stroke: boolean;
   strokeColor: string;
   strokeWeight: number;
+  fill: boolean;
 }
 
 function Circle({
@@ -14,6 +15,7 @@ function Circle({
   stroke,
   strokeColor,
   strokeWeight,
+  fill,
 }: CircleProps) {
   return (
     <Draw
@@ -31,6 +33,9 @@ function Circle({
         if (stroke) {
           dc.stroke(strokeColor);
           dc.strokeWeight(strokeWeight);
+        }
+        if (!fill) {
+          dc.noFill();
         }
         const x = dc.windowWidth / 2 + Math.cos(dc.frameCount / 100) * radius;
         const y = dc.windowHeight / 2 + Math.sin(dc.frameCount / 100) * radius;

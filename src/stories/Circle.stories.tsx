@@ -4,17 +4,6 @@ import Circle from './Circle';
 
 const meta: Meta<typeof Circle> = {
   component: Circle,
-  argTypes: {
-    color: { control: 'color' },
-    strokeColor: { control: 'color' },
-    strokeWeight: {
-      control: 'number',
-      type: 'number',
-      min: 1,
-      max: 10,
-      step: 1,
-    },
-  },
 };
 
 export default meta;
@@ -27,5 +16,6 @@ export const Primary: Story = {
     stroke: true,
     strokeColor: 'black',
     strokeWeight: 2,
+    fill: true,
   },
 };

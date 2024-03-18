@@ -23,6 +23,7 @@ class DrawContext2D {
   private perlin_octaves = 4;
   private perlin_amp_falloff = 0.5;
   private doStroke = false;
+  private doFill = true;
 
   public constructor(canvas: HTMLCanvasElement) {
     this.context = canvas.getContext('2d');
@@ -48,7 +49,12 @@ class DrawContext2D {
   public fill(color: string): void {
     if (this.context) {
       this.context.fillStyle = color;
+      this.doFill = true;
     }
+  }
+
+  public noFill(): void {
+    this.doFill = false;
   }
 
   public background(color: string): void {
@@ -85,10 +91,12 @@ class DrawContext2D {
   }
 
   public circle(x: number, y: number, radius: number): void {
-    if (this.context) {
+    if (this.context && (this.doFill || this.doStroke)) {
       this.context.beginPath();
       this.context.arc(x, y, Math.abs(radius), 0, Math.PI * 2);
-      this.context.fill();
+      if (this.doFill) {
+        this.context.fill();
+      }
       if (this.doStroke) {
         this.context.stroke();
       }
@@ -96,7 +104,7 @@ class DrawContext2D {
   }
 
   public ellipse(x: number, y: number, width: number, height: number): void {
-    if (this.context) {
+    if (this.context && (this.doFill || this.doStroke)) {
       this.context.beginPath();
       this.context.ellipse(
         x,
@@ -107,7 +115,9 @@ class DrawContext2D {
         0,
         Math.PI * 2
       );
-      this.context.fill();
+      if (this.doFill) {
+        this.context.fill();
+      }
       if (this.doStroke) {
         this.context.stroke();
       }
@@ -115,8 +125,10 @@ class DrawContext2D {
   }
 
   public rect(x: number, y: number, width: number, height: number): void {
-    if (this.context) {
-      this.context.fillRect(x, y, width, height);
+    if (this.context && (this.doFill || this.doStroke)) {
+      if (this.doFill) {
+        this.context.fillRect(x, y, width, height);
+      }
       if (this.doStroke) {
         this.context.strokeRect(x, y, width, height);
       }

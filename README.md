@@ -10,7 +10,7 @@ Simple react component library to draw some basic shapes using canvas. inspired 
 | `fill`                  | Set the fill color                                     | ✅     |
 | `stroke`                | Set the stroke color                                   | ✅     |
 | `strokeWeight`          | Set the stroke weight                                  | ✅     |
-| `noFill`                | Disable fill                                           | ❌     |
+| `noFill`                | Disable fill                                           | ✅     |
 | `noStroke`              | Disable stroke                                         | ✅     |
 | `arc`                   | Draw an arc                                            | ❌     |
 | `ellipse`               | Draw an ellipse                                        | ✅     |
