@@ -26,6 +26,7 @@ export default defineConfig({
     eslint(),
     dts({
       insertTypesEntry: true,
+      exclude: ['**/*.stories.tsx', '**/*.test.tsx', '**/stories/**'],
     }),
   ],
 });
