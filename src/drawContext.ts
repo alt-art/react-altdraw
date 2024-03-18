@@ -183,6 +183,31 @@ class DrawContext2D {
     }
   }
 
+  public quad(
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+    x3: number,
+    y3: number,
+    x4: number,
+    y4: number
+  ): void {
+    if (this.context && (this.doFill || this.doStroke)) {
+      this.context.beginPath();
+      this.context.moveTo(x1, y1);
+      this.context.lineTo(x2, y2);
+      this.context.lineTo(x3, y3);
+      this.context.lineTo(x4, y4);
+      this.context.closePath();
+      if (this.doFill) {
+        this.context.fill();
+      }
+      if (this.doStroke) {
+        this.context.stroke();
+      }
+    }
+  }
 
   public text(
     text: string,

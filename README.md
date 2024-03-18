@@ -18,7 +18,7 @@ Simple react component library to draw some basic shapes using canvas. inspired 
 | `line`                  | Draw a line                                            | ✅     |
 | `rect`                  | Draw a rectangle                                       | ✅     |
 | `triangle`              | Draw a triangle                                        | ✅     |
-| `quad`                  | Draw a quadrilateral, a four sided polygon             | ❌     |
+| `quad`                  | Draw a quadrilateral, a four sided polygon             | ✅     |
 | Curves and bezier       | Draw curves and bezier curves                          | ❌     |
 | Typography              | Draw text on the canvas                                | ✅     |
 | `map`                   | Re-maps a number from one range to another             | ❌     |
