@@ -86,6 +86,7 @@ class DrawContext2D {
       this.context.beginPath();
       this.context.moveTo(x1, y1);
       this.context.lineTo(x2, y2);
+      this.context.closePath();
       this.context.stroke();
     }
   }
@@ -97,6 +98,7 @@ class DrawContext2D {
       if (this.doFill) {
         this.context.fill();
       }
+      this.context.closePath();
       if (this.doStroke) {
         this.context.stroke();
       }
@@ -115,6 +117,7 @@ class DrawContext2D {
         0,
         Math.PI * 2
       );
+      this.context.closePath();
       if (this.doFill) {
         this.context.fill();
       }
@@ -131,6 +134,29 @@ class DrawContext2D {
       }
       if (this.doStroke) {
         this.context.strokeRect(x, y, width, height);
+      }
+    }
+  }
+
+  public triangle(
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+    x3: number,
+    y3: number
+  ): void {
+    if (this.context && (this.doFill || this.doStroke)) {
+      this.context.beginPath();
+      this.context.moveTo(x1, y1);
+      this.context.lineTo(x2, y2);
+      this.context.lineTo(x3, y3);
+      this.context.closePath();
+      if (this.doFill) {
+        this.context.fill();
+      }
+      if (this.doStroke) {
+        this.context.stroke();
       }
     }
   }
