@@ -1,13 +1,15 @@
 import { useEffect, useRef } from 'react';
-import DrawContext2D, { Vector } from './drawContext';
+import DrawContext2D, { Vector } from './DrawContext';
+import Load from './Load';
 
 interface DrawProps {
   setup: (canvas: HTMLCanvasElement) => void;
   draw: (dc: DrawContext2D) => void;
   onResize?: (canvas: HTMLCanvasElement) => void;
+  load?: () => Promise<void>;
 }
 
-function Draw({ setup, draw, onResize }: DrawProps) {
+function Draw({ setup, draw, onResize, load }: DrawProps) {
   const canvas = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -37,15 +39,25 @@ function Draw({ setup, draw, onResize }: DrawProps) {
           animationFrameId = requestAnimationFrame(render);
         }
       }
-      animationFrameId = requestAnimationFrame(render);
+      if (load) {
+        load()
+          .finally(() => {
+            animationFrameId = requestAnimationFrame(render);
+          })
+          .catch((error) => {
+            throw error;
+          });
+      } else {
+        animationFrameId = requestAnimationFrame(render);
+      }
       return () => cancelAnimationFrame(animationFrameId);
     }
-  }, [draw, onResize, setup]);
+  }, [draw, onResize, setup, load]);
 
   return <canvas ref={canvas} />;
 }
 
 export default Draw;
 
-export type { DrawContext2D };
+export { DrawContext2D, Load };
 export type { Vector };
