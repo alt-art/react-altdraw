@@ -59,6 +59,12 @@ class DrawContext2D {
   public frameRate = 0;
 
   /**
+   * Traks the time of milliseconds it took to render the last frame
+   * @returns The time of milliseconds it took to render the last frame
+   */
+  public deltaTime = 0;
+
+  /**
    * Mouse x-coordinate
    * @returns The x-coordinate of the mouse
    */

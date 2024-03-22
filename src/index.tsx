@@ -29,8 +29,8 @@ function Draw({ setup, draw, onResize, load }: DrawProps) {
       let oldTime = 0;
       function render(timestamp: number = 0) {
         if (ctx) {
-          const dt = timestamp - oldTime;
-          drawContext.frameRate = 1000 / dt;
+          drawContext.deltaTime = timestamp - oldTime;
+          drawContext.frameRate = 1000.0 / drawContext.deltaTime;
           oldTime = timestamp;
           drawContext.updateFrame();
           draw(drawContext);
