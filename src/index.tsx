@@ -26,14 +26,12 @@ function Draw({ setup, draw, onResize, load }: DrawProps) {
         }
       });
       let animationFrameId: number;
-      const times: number[] = [];
+      let oldTime = 0;
       function render(timestamp: number = 0) {
         if (ctx) {
-          while (times.length > 0 && times[0] <= timestamp - 1000) {
-            times.shift();
-            drawContext.frameRate = times.length;
-          }
-          times.push(timestamp);
+          const dt = timestamp - oldTime;
+          drawContext.frameRate = 1000 / dt;
+          oldTime = timestamp;
           drawContext.updateFrame();
           draw(drawContext);
           animationFrameId = requestAnimationFrame(render);
