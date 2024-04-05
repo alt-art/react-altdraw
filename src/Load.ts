@@ -1,5 +1,8 @@
 class Load {
+  // prevent re-loading the same font
   private static fonts = new Set<string>();
+  // prevent re-loading the same image
+  private static images = new Set<string>();
   /**
    * Load a font from a URL or a local path
    * @param path - The URL or local path of the font
@@ -24,6 +27,29 @@ class Load {
       return fontName;
     } else {
       throw new Error('Font name not found');
+    }
+  }
+
+  /**
+   * Load an image from a URL or a local path
+   * @param path - The URL or local path of the image
+   * @returns The image element
+   * @example
+   * ```tsx
+   * const image = await Load.loadImage('/path/to/image.png');
+   * // Use the image
+   * dc.drawImage(image, 10, 10);
+   * ```
+   */
+  public static async loadImage(path: string): Promise<HTMLImageElement> {
+    if (!this.images.has(path)) {
+      const image = new Image();
+      image.src = path;
+      await image.decode();
+      this.images.add(path);
+      return image;
+    } else {
+      throw new Error('Image already loaded');
     }
   }
 }

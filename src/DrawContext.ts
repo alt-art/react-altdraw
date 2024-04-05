@@ -471,6 +471,39 @@ class DrawContext2D {
   }
 
   /**
+   * Draw an image
+   * @param image - The image to draw
+   * @param x - The x-coordinate of the image
+   * @param y - The y-coordinate of the image
+   * @param width - The width of the image
+   * @param height - The height of the image
+   * @example
+   * drawContext.drawImage(image, 100, 100);
+   * drawContext.drawImage(image, 100, 100, 200, 200);
+   */
+  image(
+    image: HTMLImageElement,
+    x: number,
+    y: number,
+    width?: number,
+    height?: number
+  ): void {
+    if (this.context) {
+      if (!width) {
+        width = image.width;
+      }
+      if (!height) {
+        height = image.height;
+      }
+      if (width && height) {
+        this.context.drawImage(image, x, y, width, height);
+      } else {
+        this.context.drawImage(image, x, y);
+      }
+    }
+  }
+
+  /**
    * Draw text
    * @param text - The text to draw
    * @param x - The x-coordinate of the text
