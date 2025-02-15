@@ -3,7 +3,7 @@
   "version": "1.0.4",
   "description": "A react component for drawing in things on a canvas",
   "repository": {
-    "url": "https://github.com/alt-art/react-altdraw"
+    "url": "git+https://github.com/alt-art/react-altdraw.git"
   },
   "sponsor": {
     "url": "https://github.com/sponsors/alt-art"
@@ -51,7 +51,7 @@
     "@storybook/react-vite": "^8.5.6",
     "@storybook/test": "^8.5.6",
     "@types/node": "^22.13.4",
-    "@types/react": "^19.0.8",
+    "@types/react": "19.0.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",

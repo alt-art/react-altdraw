@@ -16,6 +16,7 @@ export default defineConfig({
       treeshake: 'smallest',
       external: ['react'],
       output: {
+        exports: 'named',
         globals: {
           react: 'React',
         },
