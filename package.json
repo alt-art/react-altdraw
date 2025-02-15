@@ -1,6 +1,6 @@
 {
   "name": "react-altdraw",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A react component for drawing in things on a canvas",
   "repository": {
     "url": "git+https://github.com/alt-art/react-altdraw.git"
